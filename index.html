@@ -53,42 +53,37 @@
             padding: 10px 0;
             border-radius: 5px;
         }
-
-
-
     </style>
 </head>
 <body>
     <div id="banner">Random Meme's I stole from my Brother (This refers to you, abi)</div>
     <div id="container">
         <img id="image" src="" alt="Random Meme" />
-        <script type='text/javascript' src='//pl25076416.profitablecpmrate.com/31/99/2b/31992bea2e7564f6e99e5f0b28727f21.js'></script>
-<script async="async" data-cfasync="false" src="//pl25076402.profitablecpmrate.com/099ce2795d58dbf525476496d7c28410/invoke.js"></script>
-<div id="container-099ce2795d58dbf525476496d7c28410"></div>
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@mikemcbride/dad-jokes@2.0.0/index.min.js"></script>
+        <script async="async" data-cfasync="false" src="//pl25076402.profitablecpmrate.com/099ce2795d58dbf525476496d7c28410/invoke.js"></script>
     </div>
 
     <script>
-        // Function to pick a random number and try to load the meme
+        // Function to load a random meme
         function loadRandomMeme() {
-            let randomNumber = Math.floor(Math.random() * 300) + 1;
             let imageElement = document.getElementById("image");
 
-            let formats = ['png', 'jpeg', 'webm'];
-            let imageUrl = '';
+            // Fetch a random dad joke (which might include meme image URL)
+            DadJokes.random().then((joke) => {
+                console.log(joke); // Optionally log the joke for debugging
 
-            // Try different formats
-            for (let format of formats) {
-                imageUrl = `memes/${randomNumber}.${format}`;
-                let img = new Image();
-                img.onload = function() {
-                    imageElement.src = imageUrl;
-                };
-                img.onerror = function() {
-                    // Continue to the next format if this one fails
-                };
-                img.src = imageUrl;
-                break; // Stop at the first successful load
-            }
+                // Example: Let's extract a meme URL if the joke contains one
+                // (You can replace this with actual meme image URLs if needed)
+                const memeUrl = joke.match(/https:\/\/api.memegen.link\/images[^\s]+(\.png|\.jpeg|\.webm)/g);
+
+                if (memeUrl) {
+                    imageElement.src = memeUrl[0]; // Set the meme image as the source
+                } else {
+                    imageElement.src = 'fallback-meme.jpg'; // Default fallback meme if no URL is found
+                }
+            }).catch((error) => {
+                console.error('Error fetching dad joke:', error);
+            });
         }
 
         // Load the meme when the page is ready
