@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Meme Viewer</title>
+    <style>
+        body {
+            background-color: #121212;
+            color: #fff;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+            flex-direction: column;
+        }
+
+        #container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        #image {
+            display: block;
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            border-radius: 10px;
+        }
+
+        .ad {
+            width: 300px;
+            height: 250px;
+            background-color: #444;
+            color: #fff;
+            text-align: center;
+            line-height: 250px;
+            font-size: 16px;
+            border-radius: 10px;
+            margin-left: 20px;
+        }
+
+        #banner {
+            position: absolute;
+            top: 10px;
+            width: 100%;
+            text-align: center;
+            font-size: 24px;
+            background-color: #333;
+            padding: 10px 0;
+            border-radius: 5px;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="banner">Awesome Random Meme Viewer</div>
+    <div id="container">
+        <img id="image" src="" alt="Random Meme" />
+        <div class="ad"><script async="async" data-cfasync="false" src="//pl25076402.profitablecpmrate.com/099ce2795d58dbf525476496d7c28410/invoke.js"></script>
+<div id="container-099ce2795d58dbf525476496d7c28410"></div></div>
+    </div>
+
+    <script>
+        // Function to pick a random number and try to load the meme
+        function loadRandomMeme() {
+            let randomNumber = Math.floor(Math.random() * 300) + 1;
+            let imageElement = document.getElementById("image");
+
+            let formats = ['png', 'jpeg', 'webm'];
+            let imageUrl = '';
+
+            // Try different formats
+            for (let format of formats) {
+                imageUrl = `memes/${randomNumber}.${format}`;
+                let img = new Image();
+                img.onload = function() {
+                    imageElement.src = imageUrl;
+                };
+                img.onerror = function() {
+                    // Continue to the next format if this one fails
+                };
+                img.src = imageUrl;
+                break; // Stop at the first successful load
+            }
+        }
+
+        // Load the meme when the page is ready
+        window.onload = loadRandomMeme;
+    </script>
+</body>
+</html>
