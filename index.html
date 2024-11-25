@@ -3,117 +3,102 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ad & Joke Border</title>
+  <title>Ad Border with Joke</title>
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
     body {
-      background-color: #121212; color: #fff; font-family: 'Arial', sans-serif;
-      display: flex; justify-content: center; align-items: center;
-      height: 100vh; overflow: hidden; position: relative;
+      background-color: #121212;
+      color: #fff;
+      font-family: 'Arial', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      overflow: hidden;
+      position: relative;
     }
-    #loading { 
-      font-size: 24px; animation: blink 1s infinite; 
-      position: absolute; z-index: 10; 
-    }
-    @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
-
     #content {
-      display: none;
-      z-index: 10; /* Above the ads */
+      z-index: 10;
       text-align: center;
       background-color: #1e1e1e;
       padding: 20px;
       border-radius: 10px;
+      max-width: 600px;
     }
-
-    #meme-text {
-      margin-top: 10px;
-      font-size: 20px;
-      line-height: 1.5;
-    }
-
     iframe {
       position: absolute;
       border: none;
+      width: 30px;
+      height: 30px;
     }
-
-    /* Top ad bar */
-    #ad-top {
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 50px;
-    }
-
-    /* Bottom ad bar */
-    #ad-bottom {
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      height: 50px;
-    }
-
-    /* Left ad bar */
-    #ad-left {
-      top: 50px;
-      bottom: 50px;
-      left: 0;
-      width: 50px;
-    }
-
-    /* Right ad bar */
-    #ad-right {
-      top: 50px;
-      bottom: 50px;
-      right: 0;
-      width: 50px;
+    #joke {
+      font-size: 20px;
+      margin-top: 10px;
     }
   </style>
 </head>
 <body>
-  <div id="loading">Loading ads and jokes...</div>
   <div id="content">
-    <div id="banner">Random Meme's I Stole From AI</div>
-    <div id="meme-text">Loading joke...</div>
+    <h1>Here's a Random Joke</h1>
+    <div id="joke">Loading joke...</div>
   </div>
 
-  <iframe id="ad-top" src="https://www.profitablecpmrate.com/aite2c5j?key=c7ebfc038dcc9a5f68bc23f9cfad5046"></iframe>
-  <iframe id="ad-bottom" src="https://www.profitablecpmrate.com/aite2c5j?key=c7ebfc038dcc9a5f68bc23f9cfad5046"></iframe>
-  <iframe id="ad-left" src="https://www.profitablecpmrate.com/aite2c5j?key=c7ebfc038dcc9a5f68bc23f9cfad5046"></iframe>
-  <iframe id="ad-right" src="https://www.profitablecpmrate.com/aite2c5j?key=c7ebfc038dcc9a5f68bc23f9cfad5046"></iframe>
-
   <script>
+    // Function to fetch and display a joke
     async function fetchJoke() {
       try {
         const response = await fetch('https://v2.jokeapi.dev/joke/Any?blacklistFlags=nsfw,racist,sexist&format=txt&type=single');
         if (!response.ok) throw new Error('Failed to fetch joke');
-        return response.text().then(joke => joke.trim());
+        const joke = await response.text();
+        document.getElementById('joke').innerText = joke.trim();
       } catch (error) {
         console.error('Error fetching joke:', error);
-        return "Oops! Couldn't fetch a joke.";
+        document.getElementById('joke').innerText = "Oops! Couldn't fetch a joke.";
       }
     }
 
-    async function loadContent() {
-      // Wait for all iframes to load
-      const iframes = document.querySelectorAll('iframe');
-      await Promise.all(
-        Array.from(iframes).map(iframe => new Promise(resolve => (iframe.onload = resolve)))
-      );
+    // Function to generate ads around the edges
+    function generateAds() {
+      const totalAds = 30; // Total number of ads
+      const adsPerSide = totalAds / 4; // Divide ads equally across 4 sides
+      const iframeSrc = "https://www.profitablecpmrate.com/aite2c5j?key=c7ebfc038dcc9a5f68bc23f9cfad5046";
 
-      // Load joke
-      const jokeText = await fetchJoke();
-      document.getElementById('meme-text').innerText = jokeText;
+      // Create ads for each side
+      for (let i = 0; i < totalAds; i++) {
+        const iframe = document.createElement("iframe");
+        iframe.src = iframeSrc;
 
-      // Show content, hide loading message
-      document.getElementById('loading').style.display = 'none';
-      document.getElementById('content').style.display = 'block';
+        if (i < adsPerSide) {
+          // Top side
+          iframe.style.top = "0";
+          iframe.style.left = `${(100 / adsPerSide) * i}%`;
+        } else if (i < adsPerSide * 2) {
+          // Right side
+          iframe.style.right = "0";
+          iframe.style.top = `${(100 / adsPerSide) * (i - adsPerSide)}%`;
+        } else if (i < adsPerSide * 3) {
+          // Bottom side
+          iframe.style.bottom = "0";
+          iframe.style.left = `${(100 / adsPerSide) * (i - adsPerSide * 2)}%`;
+        } else {
+          // Left side
+          iframe.style.left = "0";
+          iframe.style.top = `${(100 / adsPerSide) * (i - adsPerSide * 3)}%`;
+        }
 
-      // Auto-refresh the page every 60 seconds
-      setTimeout(() => location.reload(), 60000);
+        document.body.appendChild(iframe);
+      }
     }
 
-    window.onload = loadContent;
+    // Initialize the page
+    window.onload = () => {
+      fetchJoke(); // Fetch a random joke
+      generateAds(); // Generate ads around the edges
+    };
   </script>
 </body>
 </html>
