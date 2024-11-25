@@ -1,19 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <script src="/sw.js" async></script>
-  <script src="https://alwingulla.com/88/tag.min.js" async data-zone="115929"></script>
-  <meta name="ppck-ver" content="4a0b9609070a633b43f6065d23867916" />
-  <meta name="google-adsense-account" content="ca-pub-7266232933064785">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MemeCrash9</title>
+  <title>Ad & Joke Border</title>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
       background-color: #121212; color: #fff; font-family: 'Arial', sans-serif;
       height: 100vh; display: flex; justify-content: center; align-items: center;
-      overflow: hidden; flex-direction: column;
+      flex-direction: column; position: relative; overflow: hidden;
     }
     #loading { 
       font-size: 24px; animation: blink 1s infinite; 
@@ -26,21 +22,20 @@
       flex-direction: column;
       align-items: center;
       text-align: center;
-      max-width: 90%;
+      z-index: 10; /* Place content above ads */
     }
     #banner {
       font-size: 24px; background-color: #333; padding: 15px;
-      border-radius: 10px; margin-bottom: 20px; animation: slideIn 1.5s ease-out;
+      border-radius: 10px; margin-bottom: 20px;
     }
     #meme-text {
       font-size: 20px; line-height: 1.5; max-width: 80%;
-      margin: 20px; transition: transform 0.3s ease-out;
+      margin: 20px;
     }
-    @keyframes slideIn { 0% { transform: translateY(-50px); opacity: 0; } 100% { transform: translateY(0); opacity: 1; } }
 
     iframe {
-      width: 30px; height: 30px; border: none; position: absolute;
-      transition: opacity 0.5s ease-in;
+      position: absolute;
+      border: none;
     }
   </style>
 </head>
@@ -63,16 +58,37 @@
       }
     }
 
-    async function loadContent() {
-      // Create and load iframes
-      for (let i = 0; i < 30; i++) {
+    function createAdBorder() {
+      const positions = [
+        { top: 0, left: 0, width: '100%', height: '30px' }, // Top
+        { top: '30px', left: 0, width: '30px', height: 'calc(100% - 60px)' }, // Left
+        { bottom: 0, left: 0, width: '100%', height: '30px' }, // Bottom
+        { top: '30px', right: 0, width: '30px', height: 'calc(100% - 60px)' } // Right
+      ];
+
+      const iframes = positions.map(({ top, left, right, bottom, width, height }) => {
         const iframe = document.createElement('iframe');
         iframe.src = "https://www.profitablecpmrate.com/aite2c5j?key=c7ebfc038dcc9a5f68bc23f9cfad5046";
-        iframe.style.top = `${Math.random() * window.innerHeight}px`;
-        iframe.style.left = `${Math.random() * window.innerWidth}px`;
-        document.body.appendChild(iframe);
-        await new Promise(resolve => iframe.onload = resolve); // Wait for iframe to load
-      }
+        if (top) iframe.style.top = top;
+        if (left) iframe.style.left = left;
+        if (right) iframe.style.right = right;
+        if (bottom) iframe.style.bottom = bottom;
+        iframe.style.width = width;
+        iframe.style.height = height;
+        return iframe;
+      });
+
+      return Promise.all( // Concurrently load all ads
+        iframes.map(iframe => new Promise(resolve => {
+          iframe.onload = resolve;
+          document.body.appendChild(iframe);
+        }))
+      );
+    }
+
+    async function loadContent() {
+      // Load ad border
+      await createAdBorder();
 
       // Load joke
       const jokeText = await fetchJoke();
@@ -83,7 +99,7 @@
       document.getElementById('content').style.display = 'flex';
 
       // Auto-refresh the page every 60 seconds
-      setTimeout(() => location.reload(), 60000);
+      setTimeout(() => location.reload(), 45000);
     }
 
     // Start loading content
