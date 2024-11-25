@@ -1,148 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <script src="https://alwingulla.com/88/tag.min.js" data-zone="115929" async data-cfasync="false"></script>
-<meta name="google-adsense-account" content="ca-pub-7266232933064785">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MemeCrash9</title>
-    <style>
-        /* Basic Reset and Fullscreen Flexbox Layout */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            background-color: #121212;
-            color: #fff;
-            font-family: 'Arial', sans-serif;
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            overflow: hidden;
-            flex-direction: column;
-            animation: fadeIn 2s ease-out;
-        }
-
-        /* Banner Styling with smooth animation */
-        #banner {
-            position: absolute;
-            top: 10px;
-            width: 100%;
-            text-align: center;
-            font-size: 24px;
-            background-color: #333;
-            padding: 15px;
-            border-radius: 10px;
-            animation: slideIn 1.5s ease-out;
-        }
-
-        /* Smooth Text Animation */
-        #meme-text {
-            font-size: 20px;
-            text-align: center;
-            animation: textFadeIn 2s ease-out;
-            max-width: 80%;
-            margin: 20px;
-            line-height: 1.5;
-            transition: transform 0.3s ease-out;
-        }
-
-        #meme-text:hover {
-            transform: scale(1.05);
-        }
-
-        /* Meme container setup */
-        #container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            position: relative;
-            height: 70%;
-            flex-direction: column;
-            text-align: center;
-            transition: all 0.3s ease-out;
-        }
-
-        #image {
-            display: block;
-            max-width: 100%;
-            max-height: 300px;
-            object-fit: contain;
-            border-radius: 15px;
-            transition: transform 0.3s ease-out;
-        }
-
-        #image:hover {
-            transform: scale(1.05);
-        }
-
-        /* Ad Styling */
-        .ad {
-            background-color: #444;
-            color: #fff;
-            font-size: 16px;
-            line-height: 250px;
-            border-radius: 10px;
-            padding: 10px;
-            margin-top: 10px;
-            transition: transform 0.3s ease-out;
-        }
-
-        .ad:hover {
-            transform: scale(1.05);
-        }
-
-        /* Animations */
-        @keyframes fadeIn {
-            0% { opacity: 0; }
-            100% { opacity: 1; }
-        }
-
-        @keyframes slideIn {
-            0% { transform: translateY(-50px); opacity: 0; }
-            100% { transform: translateY(0); opacity: 1; }
-        }
-
-        @keyframes textFadeIn {
-            0% { opacity: 0; transform: translateY(20px); }
-            100% { opacity: 1; transform: translateY(0); }
-        }
-
-    </style>
-    
-
+  <script src="https://alwingulla.com/88/tag.min.js" data-zone="115929" async data-cfasync="false"></script>
+  <meta name="google-adsense-account" content="ca-pub-7266232933064785">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MemeCrash9</title>
+  <style>
+    /* Basic Reset and Fullscreen Flexbox Layout */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { 
+      background-color: #121212; color: #fff; font-family: 'Arial', sans-serif; 
+      height: 100vh; display: flex; justify-content: center; align-items: center; 
+      overflow: hidden; flex-direction: column; animation: fadeIn 2s ease-out; 
+    }
+    #banner { 
+      position: absolute; top: 10px; width: 100%; text-align: center; 
+      font-size: 24px; background-color: #333; padding: 15px; border-radius: 10px; 
+      animation: slideIn 1.5s ease-out; 
+    }
+    #meme-text { 
+      font-size: 20px; text-align: center; animation: textFadeIn 2s ease-out; 
+      max-width: 80%; margin: 20px; line-height: 1.5; transition: transform 0.3s ease-out; 
+    }
+    #meme-text:hover { transform: scale(1.05); }
+    #container { 
+      display: flex; justify-content: center; align-items: center; 
+      position: relative; height: 70%; flex-direction: column; text-align: center; 
+      transition: all 0.3s ease-out; 
+    }
+    .ad { 
+      background-color: #444; color: #fff; font-size: 16px; line-height: 250px; 
+      border-radius: 10px; padding: 10px; margin-top: 10px; transition: transform 0.3s ease-out; 
+    }
+    .ad:hover { transform: scale(1.05); }
+    @keyframes fadeIn { 0% { opacity: 0; } 100% { opacity: 1; } }
+    @keyframes slideIn { 0% { transform: translateY(-50px); opacity: 0; } 100% { transform: translateY(0); opacity: 1; } }
+    @keyframes textFadeIn { 0% { opacity: 0; transform: translateY(20px); } 100% { opacity: 1; transform: translateY(0); } }
+  </style>
 </head>
 <body>
-    
-    <div id="banner">Random Meme's I stole from AI</div>
-    <div id="container">
-        <div id="meme-text"></div>
-
-    </div>
-
-<script>
-const jokeswn = ['1. What do you call two monkeys that share an Amazon account? Prime mates.', '2. What kind of noise does a witch\'s vehicle make? Brrrroooom, brrroooom.', '3. My girlfriend keeps accusing me of cheating. She\'s starting to sound like my wife.', '4. What\'s brown and sticky? A stick.', '5. Two guys walked into a bar. The third guy ducked.', '6. Did you hear about the actor who broke his leg onstage? He\'s still in the cast.', '7. How do you get a country girl\'s attention? A tractor.', '8. What do you call it when a group of apes starts a company? Monkey business.', '9. Why did the pharmacist walk on her tiptoes? She didn\'t want to wake the sleeping pills.', '10. I wanted to buy a pair of camouflage pants, but I couldn\'t find any.', '11. Why are elevator jokes so classic and good? They work on many levels.', '12. I have an inferiority complex, but it\'s not a very good one.', '13. What do you call a pudgy psychic? A four-chin teller.', '14. I had a date last night, and it was perfect. Tomorrow, I\'ll have a fig.', '15. What did the police officer say to his belly button? You\'re under a vest.', '16. My wife asked me to stop singing "Wonderwall" to her. I said, "Maybe..."', '17. What\'s the most detail-oriented ocean? The Pacific.', '18. What kind of drink can be bitter and sweet? Reali-tea.', '19. What do you call a naughty lamb dressed up like a skeleton for Halloween? Baaad to the bone.', '20. Why did the lobster blush? Because it saw the ocean\'s bottom!', '21. Want to know why nurses like red crayons? Sometimes they have to draw blood.', '22. What would the Terminator be called in his retirement? The Exterminator.', '23. What did Tennessee? The same thing as Arkansas.', '24. My wife asked me to go get 6 cans of Sprite from the grocery store. I realized when I got home that I had picked 7 up.', '25. Why do bees have sticky hair? Because they use a honeycomb.', '26. Why do some couples go to the gym? Because they want their relationship to work out.', '27. What do you call an angry musician flipping someone off? A song bird.', '28. Did you hear about the kidnapping at school? It\'s fine, he woke up.', '29. How can you tell it\'s a dogwood tree? By the bark.', '30. My boss told me to have a good day, so I went home.', '31. Our vacuum cleaner is getting old. It\'s just gathering dust.', '32. Why did the man fall down the well? Because he couldn\'t see that well.', '33. When does a joke become a "dad joke?" When it becomes apparent.', '34. Why was the color green notoriously single? It was always so jaded.', '35. Why is Peter Pan always flying? Because he Neverlands.', '36. Which state has the most streets? Rhode Island.', '37. What do you call 26 letters that went for a swim? Alphawetical.', '38. What\'s the name of a very polite, European body of water? Merci.', '39. I used to hate facial hair, but then it grew on me.', '40. I want to make a brief joke, but it\'s a little cheesy.', '41. Why did the coach go to the bank? To get his quarterback.', '42. Why did the cow pack up its bags and move to Hollywood? To be in the moo-vies.', '43. Sundays are always a little sad, but the day before is a sadder day.', '44. 5/4 of people admit they\'re bad at fractions.', '45. Why did the bedding hide their relationship? They just wanted something pillow-key!', '46. You\'re American when you go into a bathroom and when you come out, but what are you while you\'re in the bathroom? European.', '47. I\'ve been thinking about taking up meditation. I figure it\'s better than sitting around doing nothing.', '48. Dogs can\'t operate MRI machines. But catscan.', '49. Singing in the shower is fun until you get soap in your mouth. Then it becomes a soap opera.', '50. It takes guts to be an organ donor.', '51. What do you get from a pampered cow? Spoiled milk.', '52. What does "Rockin\' Robin" do when she\'s bored? Tweet.', '53. I lost my job at the bank on my first day. A woman asked me to check her balance, so I pushed her over.', '54. Why did Waldo go to therapy? Because he needed to find himself.', '55. How do you row a canoe filled with puppies? Bring out the doggy paddle.', '56. What did the flowers do when the bride walked down the aisle? They rose.', '57. Why were the utensils stuck together? They were spooning.', '58. What\'s a crafty dancer\'s favorite hobby? Cutting a rug.', '59. How does a penguin build his house? Igloos it together.', '60. What kind of music do chiropractors like? Hip pop.', '61. Where do you learn to make ice cream? At sundae school.', '62. What kind of shoes does a lazy person wear? Loafers.', '63. Why is cold water so insecure? Because it\'s never called hot.', '64. I tell dad jokes, but I don\'t have any kids. I\'m a faux pa.', '65. Why can\'t you trust an atom? Because they make up everything.', '66. Justice is a dish best served cold. If it were served warm, it would be just-water.', '67. I was going to tell a time-traveling joke, but you guys didn\'t like it.', '68. Shouldn\'t the "roof" of your mouth actually be called the ceiling.', '69. Why did the baby strawberry cry? Because its mother was in a jam.', '70. Why couldn\'t the toilet paper cross the road? Because it got stuck in a crack.', '71. Stop looking for the perfect match…use a lighter.', '72. I told my doctor I heard buzzing, but he said it\'s just a bug going around.', '73. What kind of car does a sheep like to drive? A Lamborghini.', '74. What do you call someone who won\'t stick to a diet? A desserter.', '75. What did the accountant say while auditing a document? This is taxing.', '76. What did the two pieces of bread say on their wedding day? It was loaf at first sight.', '77. If you see a burglary at an Apple store, you become an iWitness.', '78. If the early bird gets the worm, I\'ll sleep in until there\'s pancakes.', '79. Why do melons have weddings? Because they cantaloupe.', '80. I signed up for a marathon, but how will I know if it\'s the real deal or just a run through?', '81. When you have a bladder infection, urine trouble.', '82. What did the drummer call his twin daughters? Anna One, Anna Two!', '83. What did the juicer say to the orange during self-quarantine? Can\'t wait to squeeze you!', '84. What do you call a toothless bear? A gummy bear!', '85. Want to hear a joke about construction? I\'m still working on it.', '86. Someone told me that I should write a book. I said, "That\'s a novel concept."', '87. Two goldfish are in a tank. One says to the other, "Do you know how to drive this thing?"', '88. Why couldn\'t the bike stand up by itself? Because it was too tired.', '89. What\'s Forrest Gump\'s password? 1forrest1', '90. How many apples can you grow on a tree? All of them.', '91. What does a nosey pepper do? It gets jalapeño business.', '92. How can you mend a broken pumpkin? Use a pumpkin patch.', '93. If a child refuses to nap, are they guilty of resisting a rest?', '94. Why do dads feel the need to tell such bad jokes? They just want to help you become a groan up.', '95. I know a lot of jokes about retired people, but none of them work.', '96. Why are spiders so smart? They can find everything on the web.', '97. What do you call spiders who just got married? Newly-webs.', '98. RIP boiled water—you will be mist.', '99. What do you call two octopuses that look the same? Itenticle.', '100. What has one head, one foot and four legs? A bed.', '101. Sore throats are a pain in the neck.', '102. What does a house wear? Address.', '103. Why did the scarecrow win an award? He was out standing in his field.', '104. What is a scarecrow\'s favorite fruit? Straw-berries.', '105. What\'s red and smells like blue paint? Red paint.', '106. My son asked me to put his shoes on, but I don\'t think they\'ll fit me.', '107. I\'ve been bored recently, so I decided to take up fencing. The neighbors keep demanding that I put it back.', '108. How do you know when a chicken is evil? It lays deviled eggs.', '109. What do you call an unpredictable camera? A loose Canon.', '110. I didn\'t get a haircut, I got them all cut.', '111. Which U.S. state is known for its especially small soft drinks? Minnesota.', '112. What do sprinters eat before a race? Nothing—they fast.', '113. What did one Dorito farmer say to the other? "Cool Ranch!"', '114. How do cows shop? From cattle-logs.', '115. I\'m so good at sleeping, I can do it with my eyes closed.', '116. People are usually shocked that I have a Police record. But I love their greatest hits!', '117. I told my girlfriend she drew on her eyebrows too high. She seemed surprised.', '118. What do you call a fibbing cat? A lion.', '119. Why shouldn\'t you write with a broken pencil? Because it\'s pointless.', '120. I like telling Dad jokes…sometimes he laughs.', '121. How do you weigh a millennial? In Instagrams.', '122. The wedding was so beautiful, even the cake was in tiers.', '123. What\'s the most patriotic sport? Flag football.', '124. Why were spectators confused by the koala\'s self-portrait? It was bear.', '125. Why did the envelope take so long to get ready? It had to get addressed.', '126. What does a karate master get rewarded with while driving? A seat belt.', '127. What do you call a baby sheep that knows karate? A lamb chop.', '128. What did the husband say to his wife right after getting LASIK surgery? "Aren\'t you a sight for sore eyes?"', '129. Why are pigs bad drivers? Because they hog the road.', '130. What do lions use to look at their manes? Mirroars.', '131. What did the dad say when his golden retriever was caught eating a hot dog? "It\'s a dog eat dog world out there."', '132. Do mascara and lipstick ever argue? Sure, but then they makeup.', '133. What piece on the playground is always exhausted? The tire swing.', '134. Why did two tall people get along so well? They could really see eye to eye.', '135. Why was the gossip disliked at the coffee shop? She always spilled the tea.', '136. What does a writer have in common with a football player? Anxiety over a rough draft.', '137. Where do wasps like to get lunch? A bee-stro.', '138. Why would doors do well on social media? Everyone looks for their handles.', '139. Is there anything worse than when it\'s raining cats and dogs? Yes! Hailing taxis.', '140. Why did the physicist and the biologist break up? Because they had no chemistry.', '141. If you feel like someone is watching you, you\'re not alone.', '142. Which bathroom appliance would be the worst life preserver? The sink.', '143. Why was the dad sitting on a pack of playing cards? His kid asked him to sit on the deck.', '144. How do birds learn how to fly? They wing it!', '145. What kind of bird is always getting hurt? The owl.', '146. What\'s either a really gross animal issue OR an impressive, magical school? Hogwarts.', '147. How does Darth Vader like his toast? On the dark side.', '148. What did the dishwasher say to the oven after a productive day? "You\'ve been on fire!"', '149. Why did the tomato blush? Because it saw the salad dressing.', '150. Why did the cashier rip money in half? They were asked to break a bill.', '151. What did one furniture maker say to another during a tense discussion? "Let\'s table this."', '152. I was going to tell a joke about water, but it was too tasteless.', '153. Why couldn\'t the duck be quiet? Because it was addicted to quack.', '154. Why was the ghost so tired? He worked the graveyard shift.', '155. Why do pancakes always win at baseball? They have the best batter.', '156. Why did the baseball player get arrested? Because he stole second base.', '157. Why couldn\'t the couple get married at the library? It was all booked up.', '158. Why did the pug buy a clock? It wanted to be a watchdog.', '159. Where do hamburgers go to dance? The meatball.', '160. How did the dad prank his daughter using fake dog poop on April Fools Day? He told her to look out for her new sham-poo in the shower.', '161. What did the air conditioner say when it met a celebrity? "I\'m a big fan."', '162. What was Sherlock Holmes\' favorite protein source? Mystery meat.', '163. What did the dryer say to the boring duvet cover that just got out of the washer? "Don\'t be such a wet blanket."', '164. Why did the pony ask for a glass of water? Because it was a little horse.', '165. Why was the cow such a heartthrob on the farm? He was a s-moo-th talker.', '166. What\'s a writer\'s favorite train station? Penn Station.', '167. What do you call a gnat with a sore throat? A hoarse fly.', '168. What was said about the messy, angry man who was eating a can of Pringles? "He\'s got a chip on his shoulder."', '169. What\'s it called when kittens get stuck in a tree? A cat-astrophe.', '170. What kind of shape may have been knighted? Cir-cles.', '171. Why is sand so optimistic? It has a can-dune attitude.', '172. What has four wheels and flies? A garbage truck.', '173. What part of the museum makes everyone sneeze? The sta-tues.', '174. What did the baker say when she won an award? "It was a piece of cake."', '175. Why couldn\'t the couple respond right away when looking at wedding venues? They were engaged.', '176. What is Marco\'s favorite clothing store? Polo.', '177. What do you call it when a lawyer takes a test early in the morning? A breakfast bar.', '178. What do frogs use to track their exercise? Fit (rib)bits.', '179. How do frogs invest their money? They use a stock croaker.', '180. Why did police arrest the turkey? They suspected fowl play.', '181. What kind of cleaning product feels a lot of motivation in life? All-purpose.', '182. Where was the dripping coming from in the fridge? The leeks.', '183. Why was the hockey player gifted a new cap? He was known for his hat tricks.', '184. What vegetable is kind to everyone? The sweet potato.', '185. How was the handsome runner described? "Dashing."', '186. What animals are the best to call if you get locked out of your house? Monkeys.', '187. What did the geometry teacher say when the class had trouble solving a problem? "Let\'s try a different angle."', '188. Why don\'t phones ever go hungry? They have plenty of apps to choose from.', '189. Why couldn\'t the family leave the room after playing with LEGOs? They were blocked.', '190. What makes a basketball court trendy and accessorized? The hoops.', '191. What did the sapphire\'s best friend tell her? "You\'re a real gem."', '192. Getting paid to sleep is a true dream job.', '193. Did you hear about the bossy man at the bar? He ordered everyone around.', '194. What do you give the dentist of the year? A little plaque.', '195. Why did the deer go to the dentist? It had buck teeth.', '196. Why did the Oreo go to the dentist? Because it lost its filling.', '197. What happens when doctors get frustrated? They lose their patients.', '198. Why was the traffic light late to work? It took too long to change.', '199. Did you hear about the guy who was afraid of hurdles? He got over it.', '200. Why didn\'t the Sun go to college? It already had a million degrees.', '201. Did you hear about the guy who drank invisible ink? He\'s at the hospital waiting to be seen.', '202. What do you call a can opener that doesn\'t work? A can\'t opener.', '203. What do lawyers wear to work? Law suits.', '204. I used to be a banker, but I lost interest.', '205. Why did the computer catch cold? It left a window open.', '206. What do computers eat for a snack? Microchips.', '207. Why did the computer go to bed? It needed to crash.', '208. Why did the employee get fired from the keyboard factory? He wasn\'t putting in enough shifts.', '209. How do trees get on the internet? They log in.', '210. Why did the computer get glasses? To improve its website.', '211. What kind of bird works on a construction site? A crane.', '212. How much money does a skunk have? Only one scent.', '213. Why did the watch go on vacation? Because it needed to unwind.', '214. What does a painter do when he gets cold? Puts on another coat.', '215. How do you tell a scientist that they have bad breath? Offer them an experi-mint.', '216. How did the barber win the race? He knew a shortcut.', '217. Why did the roofer go to the doctor? He had shingles.', '218. Dogs can\'t operate MRI machines, but cats-can.', '219. What does a librarian use to go fishing? A bookworm.', '220. What did the roof say to the shingle? The first one is on the house.', '221. Why did the tailor get fired? He wasn\'t a good fit.', '222. What kind of bug can tell time? A clock-roach.', '223. Why did the girl toss a clock out the window? She wanted to see time fly.', '224. When does Friday come before Thursday? In the dictionary.', '225. How do celebrities stay cool? They have many fans.', '226. What is a marsupial\'s favorite thing to drink? Coca–Kola.', '227. Why do stingrays like to swim in salt water? Because pepper makes them sneeze.', '228. Why should you never play poker in the African safari? Because it\'s full of cheetahs.', '229. How do apes fly from jungle to jungle? By hot air baboon.', '230. What did Cinderella the dolphin wear to the ocean ball? A glass flipper.', '231. Why was the baby snake sad? Someone took its rattle.', '232. What happens when a frog\'s car breaks down? It gets toad away.', '233. Why can\'t you give Elsa a balloon for her birthday? She\'ll "let it go, let it go…"', '234. What\'s a bee\'s favorite Disney movie? Beauty and the Bees.', '235. Why did the egg have the day off? It was Fry-day.', '236. How did the two chickens dance at the ball? Chick to chick.', '237. Why don\'t football players wear glasses? It\'s a contact sport.', '238. What\'s the most popular place for fruit to go on vacation? Pear-is.', '239. What does the lemon say when it answers its phone? "Yellow?"', '240. Why didn\'t the skeleton end up climbing the mountain? He didn\'t have the guts.', '241. What kind of shoes do ninjas wear? Sneakers.', '242. How did Harry Potter get down the hill? Walking. JK! Rowling.', '243. What\'s the best smelling insect? A deodor-ant.', '244. What was the flute-playing killer whale auditioning for? The Trans-Siberian Orcha-stra.', '245. What concert costs just 45 cents? 50 Cents featuring Nickelback.', '246. What do you call a lazy kangaroo? A pouch potato.', '247. What do you call a belt made out of watches? A waist of time.', '248. What happens when a strawberry gets run over crossing the street? It creates a traffic jam.', '249. Which bear is the most condescending? A pan-duh!', '250. Why can\'t pigs play soccer? They hog the ball.', '251. Where do math teachers go for spring break? Times Square.', '252. What is something clouds wear every day? Thunderwear.', '253. What do you call a hot dog on wheels? Fast food.', '254. What does Frosty\'s wife use during her nighttime routine? Cold cream.', '255. What\'s the best way to watch a fly-fishing tournament? Via live stream.', '256. What\'s a pizza maker\'s favorite song? "Slice, Slice, Baby."', '257. Where do killer whales go to get braces? The orca-dontist.', '258. What do you get when you cross a hamburger with a computer? A big mac.', '259. What\'s something an ice cream lawyer says? "You got served."', '260. What do you call a fake noodle? An impasta.', '261. How does the ocean say hello? It waves.', '262. Why did the piece of candy go to outer space? To find the Milky Way.', '263. Where do birds stay when they travel? Someplace cheep.', '264. What did Captain Hook\'s sidekick say to Adele? "Hello, it\'s Smee!"', '265. Where do penguins go to vote? The North Poll.', '266. How do you make a robot angry? Keep pushing its buttons.', '267. Why shouldn\'t you buy a hamburger in Athens? Because it will be too Greecey.', '268. Why did Mickey Mouse get hit with a snowball? Because Donald ducked.', '269. What do you call a fake pizza? A pepperphony pizza.', '270. What does garlic do when it gets hot? Takes its cloves off.', '271. What do you call a pony with a sore throat? A little hoarse.', '272. What did the vet say to the cat? "How are you feline?"', '273. Why don\'t eggs tell each other jokes? They\'ll crack each other up.', '274. What kind of glue should you use to keep your teeth together? Tooth paste.', '275. You know, I used to play piano by ear. Now, I play it with my hands.', '276. Have you heard about the restaurant on the Moon? Great food, no atmosphere.', '277. My wife told me to take the spider out instead of killing it. So, we went out and had a few drinks. Nice guy; he\'s a web designer.', '278. Did you hear about the mathematician who\'s afraid of negative numbers? Apparently, he\'ll stop at nothing to avoid them.', '279. Why did the invisible man turn down the job offer? He couldn\'t see himself doing it.', '280. What\'s orange and sounds like a parrot? A carrot.', '281. Want to hear a joke about paper? Never mind, it\'s tearable.', '282. I have a fear of speed bumps. But I\'m slowly getting over it.', '283. Why do cows have hooves instead of feet? Because they lactose.', '284. What\'s the difference between a poorly dressed man on a tricycle and a well-dressed man on a bicycle? Attire.', '285. What does a baby computer call his father? Data.', '286. What do you call a line of men waiting to get haircuts? A barberqueue.', '287. How do you find Will Smith in a snowstorm? You look for fresh prints.', '288. I\'m reading a book on anti-gravity. It\'s impossible to put down.', '289. What do you call a sad cup of coffee? A depresso.', '290. What do you call bears with no ears? B.', '291. "Dad, can you explain to me what a solar eclipse is?" No sun.', '292. What\'s the best thing about living in Switzerland? I don\'t know, but the flag is a big plus.', '293. Why should you never brush your teeth with your left hand? Because a toothbrush works much better.', '294. Why don\'t I drink anymore? Because last time, I told my boss exactly what I thought of him. Twice.', '295. Why can\'t you hear a psychiatrist using the bathroom? Because the "P" is silent.', '296. What\'s the difference between a man\'s wallet before and after kids? There are pictures where the money used to be.', '297. Why did the man bring a ladder to the bar? He heard the drinks were on the house.', '298. I couldn\'t figure out why the baseball kept getting bigger. Then, it hit me.', '299. Did you hear about the Italian chef who died? He pasta way.', '300. What\'s the difference between a hippo and a zippo? One\'s really heavy, and the other\'s a little lighter.']
-const jokes = jokeswn.map(joke => joke.replace(/^\d+\.\s*/, ''));
-
-        // Randomly select a joke from the array
-        function getRandomJoke() {
-            const randomIndex = Math.floor(Math.random() * jokes.length);
-            return jokes[randomIndex];
+  <div id="banner">Random Meme's I stole from AI</div>
+  <div id="container">
+    <div id="meme-text">Loading joke...</div>
+  </div>
+  <script>
+    async function fetchJoke() {
+      try {
+        const response = await fetch('https://v2.jokeapi.dev/joke/Any?blacklistFlags=nsfw,racist,sexist&format=txt&type=single');
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
         }
+        const joke = await response.text();
+        return joke.trim(); // Ensure no extra spaces
+      } catch (error) {
+        console.error('Failed to fetch joke:', error);
+        return "Oops! Couldn't fetch a joke right now.";
+      }
+    }
 
-        // Display the joke in the meme text area
-        function loadRandomMemeText() {
-            let memeTextElement = document.getElementById("meme-text");
-            memeTextElement.innerText = getRandomJoke();
-        }
+    async function loadRandomMemeText() {
+      const memeTextElement = document.getElementById('meme-text');
+      memeTextElement.innerText = await fetchJoke();
+    }
 
-        // Load the meme when the page is ready
-        window.onload = loadRandomMemeText;
-
-    </script>
+    window.onload = loadRandomMemeText;
+  </script>
 </body>
 </html>
