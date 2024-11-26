@@ -80,6 +80,39 @@
       }
     }
 
+    function generateAds() {
+      const totalAds = 4; // Total number of ads
+      const adsPerSide = totalAds / 4; // Divide ads equally across 4 sides
+      const iframeSrc = "https://zireemilsoude.net/4/8566521";
+
+      // Create ads for each side
+      for (let i = 0; i < totalAds; i++) {
+        const iframe = document.createElement("iframe");
+        iframe.src = iframeSrc;
+
+        if (i < adsPerSide) {
+          // Top side
+          iframe.style.top = "0";
+          iframe.style.left = `${(100 / adsPerSide) * i}%`;
+        } else if (i < adsPerSide * 2) {
+          // Right side
+          iframe.style.right = "0";
+          iframe.style.top = `${(100 / adsPerSide) * (i - adsPerSide)}%`;
+        } else if (i < adsPerSide * 3) {
+          // Bottom side
+          iframe.style.bottom = "0";
+          iframe.style.left = `${(100 / adsPerSide) * (i - adsPerSide * 2)}%`;
+        } else {
+          // Left side
+          iframe.style.left = "0";
+          iframe.style.top = `${(100 / adsPerSide) * (i - adsPerSide * 3)}%`;
+        }
+
+        document.body.appendChild(iframe);
+      }
+    }
+
+
     async function loadNewJoke() {
       const joke = await fetchJoke();
       document.getElementById('joke').innerText = joke;
@@ -87,6 +120,7 @@
 
     window.onload = () => {
       loadNewJoke();
+      generateAds();
     };
 
     document.getElementById('nextBtn').addEventListener('click', () => {
