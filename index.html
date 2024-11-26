@@ -120,34 +120,10 @@ input:checked + .slider::before {
   <div id="content">
     <h1>Here's a Random Joke</h1>
     <div id="joke">Loading joke...</div>
-    <br>
-<label class="switch">
-    <input type="checkbox" id="tabCloserSwitch">
-    <span class="slider"></span>
-</label>
-    <span>Disable Long Ads?</span>
     <button id="nextBtn">Next Joke</button>
   </div>
 
   <script>
-        const originalOpen = window.open;
-
-        // Override window.open to monitor newly opened tabs
-        window.open = function (...args) {
-            const newTab = originalOpen.apply(window, args); // Open the tab normally
-            
-            // Check if the switch is on
-            const isTabCloserEnabled = document.getElementById("tabCloserSwitch").checked;
-
-            if (isTabCloserEnabled && newTab) {
-                // Close the tab after 5 seconds
-                setTimeout(() => {
-                    newTab.close();
-                }, 5000);
-            }
-
-            return newTab;
-        };
     
     async function fetchJoke() {
       try {
