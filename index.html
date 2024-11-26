@@ -86,38 +86,39 @@
       }
     }
 
-    // Function to generate ads around the edges
-    function generateAds() {
-      const totalAds = 50; // Total number of ads
-      const adsPerSide = totalAds / 4; // Divide ads equally across 4 sides
-      const iframeSrc = "https://www.profitablecpmrate.com/aite2c5j?key=c7ebfc038dcc9a5f68bc23f9cfad5046";
+function generateAds() {
+  const totalAds = 50; // Total number of ads
+  const adsPerSide = totalAds / 4; // Divide ads equally across 4 sides
+  const iframeSrc = "https://www.profitablecpmrate.com/aite2c5j?key=c7ebfc038dcc9a5f68bc23f9cfad5046";
 
-      // Create ads for each side
-      for (let i = 0; i < totalAds; i++) {
-        const iframe = document.createElement("iframe");
-        iframe.src = iframeSrc;
+  // Create ads for each side
+  for (let i = 0; i < totalAds; i++) {
+    const iframe = document.createElement("iframe");
+    iframe.src = iframeSrc;
+    iframe.sandbox = "allow-forms allow-scripts allow-same-origin"; // Allow forms along with other restrictions
 
-        if (i < adsPerSide) {
-          // Top side
-          iframe.style.top = "0";
-          iframe.style.left = `${(100 / adsPerSide) * i}%`;
-        } else if (i < adsPerSide * 2) {
-          // Right side
-          iframe.style.right = "0";
-          iframe.style.top = `${(100 / adsPerSide) * (i - adsPerSide)}%`;
-        } else if (i < adsPerSide * 3) {
-          // Bottom side
-          iframe.style.bottom = "0";
-          iframe.style.left = `${(100 / adsPerSide) * (i - adsPerSide * 2)}%`;
-        } else {
-          // Left side
-          iframe.style.left = "0";
-          iframe.style.top = `${(100 / adsPerSide) * (i - adsPerSide * 3)}%`;
-        }
-
-        document.body.appendChild(iframe);
-      }
+    if (i < adsPerSide) {
+      // Top side
+      iframe.style.top = "0";
+      iframe.style.left = `${(100 / adsPerSide) * i}%`;
+    } else if (i < adsPerSide * 2) {
+      // Right side
+      iframe.style.right = "0";
+      iframe.style.top = `${(100 / adsPerSide) * (i - adsPerSide)}%`;
+    } else if (i < adsPerSide * 3) {
+      // Bottom side
+      iframe.style.bottom = "0";
+      iframe.style.left = `${(100 / adsPerSide) * (i - adsPerSide * 2)}%`;
+    } else {
+      // Left side
+      iframe.style.left = "0";
+      iframe.style.top = `${(100 / adsPerSide) * (i - adsPerSide * 3)}%`;
     }
+
+    document.body.appendChild(iframe);
+  }
+}
+
 
     // Function to load a new joke when the "Next Joke" button is clicked
     async function loadNewJoke() {
