@@ -12,8 +12,8 @@
       box-sizing: border-box;
     }
     body {
-      background-color: #B56A00; /* Dark yellowish base color */
-      background-image: linear-gradient(135deg, #FFC300, #B56A00); /* Gradient from yellow to dark yellow */
+      background-color: #B56A00;
+      background-image: #B56A00;
       color: #fff;
       font-family: 'Arial', sans-serif;
       display: flex;
@@ -35,15 +35,15 @@
     iframe {
       position: absolute;
       border: none;
-      width: 90px;
-      height: 90px;
+      width: 120px;
+      height: 120px;
     }
     #joke {
       font-size: 20px;
       margin-top: 10px;
     }
     h1 {
-      color: #F7B801; /* Lighter yellow for the title */
+      color: #F7B801;
     }
     button {
       background-color: #F18701;
@@ -69,13 +69,10 @@
   </div>
 
   <script>
-    // Function to fetch a random joke from icanhazdadjoke API
     async function fetchJoke() {
       try {
         const response = await fetch('https://icanhazdadjoke.com/', {
-          headers: {
-            'Accept': 'application/json' // Specify we want JSON response
-          }
+          headers: { 'Accept': 'application/json' }
         });
         if (!response.ok) throw new Error('Failed to fetch joke');
         const data = await response.json();
@@ -86,54 +83,32 @@
       }
     }
 
-function generateAds() {
-  const totalAds = 50; // Total number of ads
-  const adsPerSide = totalAds / 4; // Divide ads equally across 4 sides
-  const iframeSrc = "https://www.profitablecpmrate.com/aite2c5j?key=c7ebfc038dcc9a5f68bc23f9cfad5046";
+    function generateAds() {
+      const totalAds = 10; // Number of ads
+      const iframeSrc = "https://www.profitablecpmrate.com/aite2c5j?key=c7ebfc038dcc9a5f68bc23f9cfad5046";
 
-  // Create ads for each side
-  for (let i = 0; i < totalAds; i++) {
-    const iframe = document.createElement("iframe");
-    iframe.src = iframeSrc;
-    iframe.sandbox = "allow-forms allow-scripts allow-same-origin"; // Allow forms along with other restrictions
-
-    if (i < adsPerSide) {
-      // Top side
-      iframe.style.top = "0";
-      iframe.style.left = `${(100 / adsPerSide) * i}%`;
-    } else if (i < adsPerSide * 2) {
-      // Right side
-      iframe.style.right = "0";
-      iframe.style.top = `${(100 / adsPerSide) * (i - adsPerSide)}%`;
-    } else if (i < adsPerSide * 3) {
-      // Bottom side
-      iframe.style.bottom = "0";
-      iframe.style.left = `${(100 / adsPerSide) * (i - adsPerSide * 2)}%`;
-    } else {
-      // Left side
-      iframe.style.left = "0";
-      iframe.style.top = `${(100 / adsPerSide) * (i - adsPerSide * 3)}%`;
+      for (let i = 0; i < totalAds; i++) {
+        const iframe = document.createElement("iframe");
+        iframe.src = iframeSrc;
+        iframe.sandbox = "allow-scripts allow-same-origin";
+        iframe.style.top = `${Math.random() * 80}%`; // Randomized positioning
+        iframe.style.left = `${Math.random() * 80}%`;
+        document.body.appendChild(iframe);
+      }
     }
 
-    document.body.appendChild(iframe);
-  }
-}
-
-
-    // Function to load a new joke when the "Next Joke" button is clicked
     async function loadNewJoke() {
       const joke = await fetchJoke();
       document.getElementById('joke').innerText = joke;
     }
 
-    // Initialize the page
     window.onload = () => {
-      loadNewJoke(); // Fetch a random joke
-      generateAds(); // Generate ads around the edges
+      loadNewJoke();
+      generateAds();
     };
 
     document.getElementById('nextBtn').addEventListener('click', () => {
-     location.reload()
+      location.reload();
     });
   </script>
 </body>
