@@ -31,12 +31,15 @@
       max-width: 600px;
       border-radius: 10px;
       box-shadow: 0 0 90px #403000;
+      width: 90%; /* Adjust width for smaller screens */
     }
     iframe {
       position: absolute;
       border: none;
       width: 90px;
       height: 90px;
+      /* Prevent iframe content from interfering */
+      pointer-events: none;
     }
     #joke {
       font-size: 20px;
@@ -58,6 +61,19 @@
     }
     button:hover {
       background-color: #FFA938;
+    }
+    @media (max-width: 768px) {
+      body {
+        flex-direction: column; /* Stack content vertically */
+      }
+      #content {
+        padding: 10px;
+        font-size: 90%; /* Scale down content */
+      }
+      iframe {
+        width: 60px;
+        height: 60px;
+      }
     }
   </style>
 </head>
@@ -96,6 +112,7 @@
       for (let i = 0; i < totalAds; i++) {
         const iframe = document.createElement("iframe");
         iframe.src = iframeSrc;
+        iframe.sandbox = "allow-scripts allow-same-origin"; // Restrict iframe capabilities
 
         if (i < adsPerSide) {
           // Top side
@@ -132,7 +149,7 @@
     };
 
     document.getElementById('nextBtn').addEventListener('click', () => {
-     location.reload()
+      location.reload();
     });
   </script>
 </body>
