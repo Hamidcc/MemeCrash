@@ -20,14 +20,41 @@
       height: 100vh;
       overflow: hidden;
       position: relative;
+      flex-direction: column;
     }
     #content {
       z-index: 10;
       text-align: center;
       background-color: #1e1e1e;
-      padding: 20px;
-      border-radius: 10px;
+      padding: 30px;
+      border-radius: 15px;
       max-width: 600px;
+      width: 100%;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    }
+    h1 {
+      font-size: 24px;
+      margin-bottom: 20px;
+      color: #ff5722;
+    }
+    #joke {
+      font-size: 18px;
+      margin-top: 10px;
+      color: #bbb;
+    }
+    button {
+      background-color: #ff5722;
+      color: white;
+      font-size: 16px;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      margin-top: 20px;
+    }
+    button:hover {
+      background-color: #ff7043;
     }
     iframe {
       position: absolute;
@@ -35,9 +62,13 @@
       width: 30px;
       height: 30px;
     }
-    #joke {
-      font-size: 20px;
-      margin-top: 10px;
+    .ads-container {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
     }
   </style>
 </head>
@@ -45,7 +76,10 @@
   <div id="content">
     <h1>Here's a Random Joke</h1>
     <div id="joke">Loading joke...</div>
+    <button id="nextBtn">Next</button>
   </div>
+
+  <div class="ads-container"></div>
 
   <script>
     // Function to fetch and display a joke
@@ -63,10 +97,12 @@
 
     // Function to generate ads around the edges
     function generateAds() {
-      const totalAds = 30; // Total number of ads
+      const totalAds = 50; // Total number of ads
       const adsPerSide = totalAds / 4; // Divide ads equally across 4 sides
       const iframeSrc = "https://www.profitablecpmrate.com/aite2c5j?key=c7ebfc038dcc9a5f68bc23f9cfad5046";
 
+      const adsContainer = document.querySelector('.ads-container');
+      
       // Create ads for each side
       for (let i = 0; i < totalAds; i++) {
         const iframe = document.createElement("iframe");
@@ -90,9 +126,17 @@
           iframe.style.top = `${(100 / adsPerSide) * (i - adsPerSide * 3)}%`;
         }
 
-        document.body.appendChild(iframe);
+        adsContainer.appendChild(iframe);
       }
     }
+
+    // Handle the next button functionality
+    document.getElementById('nextBtn').addEventListener('click', () => {
+      // Wait 0.5 seconds before reloading
+      setTimeout(() => {
+        location.reload();
+      }, 400); // 500ms delay
+    });
 
     // Initialize the page
     window.onload = () => {
