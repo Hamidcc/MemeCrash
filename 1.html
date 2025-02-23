@@ -11,8 +11,9 @@
       padding: 0;
       box-sizing: border-box;
     }
+
     body {
-      background-color: #B56A00;
+      background-color: #1d1d1d;
       color: #fff;
       font-family: 'Arial', sans-serif;
       display: flex;
@@ -21,29 +22,88 @@
       height: 100vh;
       overflow: hidden;
       position: relative;
+      transition: all 0.5s ease; /* Smooth transition effect */
     }
+
     #content {
       z-index: 10;
       text-align: center;
-      background-color: #1e1e1e;
-      padding: 20px;
+      background-color: #222;
+      padding: 40px 20px;
       max-width: 600px;
-      border-radius: 10px;
-      box-shadow: 0 0 90px #403000;
+      border-radius: 15px;
+      box-shadow: 0 0 60px #333;
+      animation: fadeIn 1s ease;
     }
+
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+
     #joke {
-      font-size: 20px;
-      margin-top: 10px;
+      font-size: 22px;
+      margin-top: 20px;
+      transition: font-size 0.3s ease, opacity 0.3s ease;
     }
+
     h1 {
       color: #F7B801;
+      font-size: 30px;
+      margin-bottom: 15px;
     }
+
+    #cta {
+      margin-top: 25px;
+      font-size: 16px;
+      color: #FFF;
+    }
+
+    /* Like & Subscribe Button Style */
+    #like-btn, #subscribe-btn {
+      margin-top: 15px;
+      padding: 12px 20px;
+      background-color: #f57c00;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      font-size: 16px;
+    }
+
+    #like-btn:hover, #subscribe-btn:hover {
+      background-color: #FFA938;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 600px) {
+      #content {
+        padding: 20px;
+      }
+      h1 {
+        font-size: 24px;
+      }
+      #joke {
+        font-size: 18px;
+      }
+      #cta {
+        font-size: 14px;
+      }
+    }
+
   </style>
 </head>
 <body>
   <div id="content">
     <h1>Here's a Random Joke</h1>
     <div id="joke">Loading joke...</div>
+    <div id="cta">Like, Subscribe, and Share for more!</div>
+    <button id="like-btn">Like</button>
+    <button id="subscribe-btn">Subscribe</button>
   </div>
 
   <script>
@@ -82,7 +142,10 @@
       }
 
       storeJoke(joke);
-      document.getElementById('joke').innerText = joke;
+      const jokeElement = document.getElementById('joke');
+      jokeElement.innerText = joke;
+      jokeElement.style.opacity = 1;
+      jokeElement.style.fontSize = '22px';
     }
 
     window.onload = () => {
