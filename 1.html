@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Meme Crash 9</title>
+  <link rel="icon" type="image/x-icon" href="https://images.emojiterra.com/twitter/v14.0/1024px/1f923.png">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      background-color: #B56A00;
+      color: #fff;
+      font-family: 'Arial', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      overflow: hidden;
+      position: relative;
+    }
+    #content {
+      z-index: 10;
+      text-align: center;
+      background-color: #1e1e1e;
+      padding: 20px;
+      max-width: 600px;
+      border-radius: 10px;
+      box-shadow: 0 0 90px #403000;
+    }
+    #joke {
+      font-size: 20px;
+      margin-top: 10px;
+    }
+    h1 {
+      color: #F7B801;
+    }
+  </style>
+</head>
+<body>
+  <div id="content">
+    <h1>Here's a Random Joke</h1>
+    <div id="joke">Loading joke...</div>
+  </div>
+
+  <script>
+    async function fetchJoke() {
+      try {
+        const response = await fetch('https://icanhazdadjoke.com/', {
+          headers: { 'Accept': 'application/json' }
+        });
+        if (!response.ok) throw new Error('Failed to fetch joke');
+        const data = await response.json();
+        return data.joke;
+      } catch (error) {
+        console.error('Error fetching joke:', error);
+        return "Oops! Couldn't fetch a joke.";
+      }
+    }
+
+    function getStoredJokes() {
+      const storedJokes = JSON.parse(localStorage.getItem('jokesSeen')) || [];
+      return storedJokes;
+    }
+
+    function storeJoke(joke) {
+      const storedJokes = getStoredJokes();
+      storedJokes.push(joke);
+      localStorage.setItem('jokesSeen', JSON.stringify(storedJokes));
+    }
+
+    async function loadNewJoke() {
+      const joke = await fetchJoke();
+      const jokesSeen = getStoredJokes();
+
+      // Check if the joke was seen more than twice
+      if (jokesSeen.filter(j => j === joke).length >= 2) {
+        return loadNewJoke(); // Try another joke if it has been seen twice
+      }
+
+      storeJoke(joke);
+      document.getElementById('joke').innerText = joke;
+    }
+
+    window.onload = () => {
+      loadNewJoke();
+    };
+  </script>
+</body>
+</html>
