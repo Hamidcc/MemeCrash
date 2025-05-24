@@ -12,7 +12,7 @@
 </head>
 <body>
 
-  <h1>🔄 Shared Toggle Button</h1>
+  <h1>Are we sleeping? 🤔💀</h1>
   <button id="toggleBtn">Loading...</button>
   <p id="statusText"></p>
 
@@ -41,7 +41,7 @@
       const isOn = data?.isOn ?? false;
       const time = data?.lastFlipped ?? "Never";
 
-      toggleBtn.textContent = isOn ? "🟢 ON" : "🔴 OFF";
+      toggleBtn.textContent = isOn ? "🟢 YA WE ARE" : "🔴 NO PLEZ COME AND MAKE US SLEEP WE R SLEEPY";
       statusText.textContent = "Last flipped: " + new Date(time).toLocaleString();
     });
 
