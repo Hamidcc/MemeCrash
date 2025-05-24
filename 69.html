@@ -1,1 +1,61 @@
 
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Real-Time Toggle Button</title>
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-database-compat.js"></script>
+  <style>
+    body { font-family: sans-serif; text-align: center; padding: 40px; }
+    button { font-size: 2em; padding: 10px 30px; }
+  </style>
+</head>
+<body>
+
+  <h1>🔄 Shared Toggle Button</h1>
+  <button id="toggleBtn">Loading...</button>
+  <p id="statusText"></p>
+
+  <script>
+    // Step 1: Initialize Firebase
+    const firebaseConfig = {
+      apiKey: "AIzaSyDDejH2PIAM-PYqByQzY7ur_0Ko8kUXuCM",
+      authDomain: "sleep-a2e3a.firebaseapp.com",
+      databaseURL: "https://sleep-a2e3a-default-rtdb.firebaseio.com",
+      projectId: "sleep-a2e3a",
+      storageBucket: "sleep-a2e3a.firebasestorage.app",
+      messagingSenderId: "660257493701",
+      appId: "1:660257493701:web:c219bb48945d8f621716ac"
+    };
+    firebase.initializeApp(firebaseConfig);
+    const db = firebase.database();
+
+    const toggleRef = db.ref("sharedToggle");
+
+    const toggleBtn = document.getElementById("toggleBtn");
+    const statusText = document.getElementById("statusText");
+
+    // Step 2: Update UI when DB changes
+    toggleRef.on("value", (snapshot) => {
+      const data = snapshot.val();
+      const isOn = data?.isOn ?? false;
+      const time = data?.lastFlipped ?? "Never";
+
+      toggleBtn.textContent = isOn ? "🟢 ON" : "🔴 OFF";
+      statusText.textContent = "Last flipped: " + new Date(time).toLocaleString();
+    });
+
+    // Step 3: Button click updates DB
+    toggleBtn.addEventListener("click", () => {
+      toggleRef.get().then((snapshot) => {
+        const currentState = snapshot.val()?.isOn ?? false;
+        toggleRef.set({
+          isOn: !currentState,
+          lastFlipped: Date.now()
+        });
+      });
+    });
+  </script>
+
+</body>
+</html>
