@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -29,13 +28,12 @@
     };
     firebase.initializeApp(firebaseConfig);
     const db = firebase.database();
-
     const toggleRef = db.ref("sharedToggle");
 
     const toggleBtn = document.getElementById("toggleBtn");
     const statusText = document.getElementById("statusText");
 
-    // Step 2: Update UI when DB changes
+    // Update UI on database change
     toggleRef.on("value", (snapshot) => {
       const data = snapshot.val();
       const isOn = data?.isOn ?? false;
@@ -45,8 +43,8 @@
       statusText.textContent = "Last flipped: " + new Date(time).toLocaleString();
     });
 
-    // Step 3: Button click updates DB
-    toggleBtn.addEventListener("click", () => {
+    // Auto-toggle on page load
+    window.onload = () => {
       toggleRef.get().then((snapshot) => {
         const currentState = snapshot.val()?.isOn ?? false;
         toggleRef.set({
@@ -54,7 +52,7 @@
           lastFlipped: Date.now()
         });
       });
-    });
+    };
   </script>
 
 </body>
